@@ -23,6 +23,13 @@ wordList= []
 
 
 
+'''
+build a word from the constraints given
+uses vowels and consonants
+Also adds a "u" if there is a "q"
+'''
+
+
 def buildIt(vowel,consonant,dictionary,blackList):
 
 	newWord = ''
@@ -43,6 +50,7 @@ def buildIt(vowel,consonant,dictionary,blackList):
 	########THIS SLOWS DOWN PROCESS HUGELY BUT ALLOWS YOU TO
 	########TO CHECK IF WORD IS WRONG BEFORE DOING TO SPELL CHECK
 	########AND OTHER PROCESSES
+	
 	#h = open("wrongWords.txt","r")
 	#for line in h:
 	#	lines = line.rstrip('\n')
@@ -74,40 +82,15 @@ def buildIt(vowel,consonant,dictionary,blackList):
 	#elapsed_time = time.time() - start_time
 	#print(elapsed_time)	
 
+
+	
 '''
-def buildIt(vowel,consonant,dictionary):
-	newWord = ''
-	random = randint(3,9)
-	alphabet = []
-	knownWordsRange = []
-	alphabet = vowel + consonant
-	dicLength = len(dictionary)-1
-	wordLength = len(knownWordsRange)
-	ible = "ible"
-	able = "able"
-	ableLess = 0
-	ibleLess = 0
-	
-	newWordInt = 0
-	
-
-	#####Uncomment and Move elapsed_time to where you want to time to
-	#start_time = time.time()
-	#elapsed_time = time.time() - start_time
-
-	for i in range(random):
-
-		vOrC = randint(0,3)
-		if vOrC%3 == 0:
-			vRandom = randint(0,(len(vowel)-1))
-			newWord += vowel[vRandom]
-		else:
-			cRandom = randint(0,(len(consonant)-1))
-			newWord += consonant[cRandom]
-			if consonant[cRandom] == "q":
-				newWord += vowel[4]
+Checks the spelling of the parameter with a dictionary
+Also checks for common spelling mistakes(ex: ei or ie )
 '''
-	
+
+
+
 def spellCheck(dictionary,newWord,vowel,consonant):
 
 	
@@ -179,6 +162,10 @@ def spellCheck(dictionary,newWord,vowel,consonant):
 		#print("this")
 
 
+'''
+Logs if the parameter wrongWord is in the list/array
+wrong, if it isnt in wrong then adds it to the list/array
+'''
 			
 	
 
@@ -191,7 +178,10 @@ def wrongWordLog(wrongWord):
 		f.close
 	
 		
-
+'''
+Reads in from each of the text files for building words
+and the dictionary then adds them to list/array
+'''
 
 
 
@@ -225,7 +215,10 @@ def readIn():
 
 
 
-
+'''
+Finds words in the knowWords text file.  Repeats until user specifies
+to stop.  
+'''
 
 def findWord(word):
 	
