@@ -18,6 +18,8 @@ from random import randint
 
 global wrong
 wrong = []
+global wordList 
+wordList= []
 
 
 
@@ -224,8 +226,47 @@ def readIn():
 
 
 
+
+def findWord(word):
+	
+	f = open("knowWords.txt","r")
+	for line in f:
+
+		lines = line.rstrip('\n')
+		if lines not in wordList:
+			wordList.append(lines)
+
+	if word in wordList:
+		print(word + " in know word list")
+	else:
+		print(word + " not in list, Try again? (y/n)")
+		while True:
+			tryAgain = raw_input()
+			if tryAgain == "y":
+				print("Enter in new word to try")
+				try2 = raw_input()
+				findWord(try2)
+				break
+			elif tryAgain == "n":
+				print("BYE")
+				break
+			else:
+				print( "Try again? (y/n)")
+				
+
+
+
+
+
+
+
 readIn()
 print("done")
+
+print("Search for a word already found, Enter word: ")
+inWord = raw_input()
+
+findWord(inWord)
 
 #done
 #do not loop creating dictionary and all other arrays, takes so much longerrrrrrr
